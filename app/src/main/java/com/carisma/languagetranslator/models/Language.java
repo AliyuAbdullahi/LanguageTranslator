@@ -1,17 +1,34 @@
 package com.carisma.languagetranslator.models;
 
+import io.realm.RealmList;
+import io.realm.RealmObject;
+
 /**
  * Created by aliyuabdullahi on 11/22/16.
  */
 
-public class Language {
-    public String getText() {
-        return word;
+public class Language extends RealmObject {
+    private RealmList<Word> words;
+    private String format;
+
+    public RealmList<Word> getWords() {
+        return words;
     }
 
-    public void setWord(String word) {
-        this.word = word;
+    public void setWords(RealmList<Word> words) {
+        this.words = words;
     }
 
-    private String word;
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
+    }
+
+    @Override
+    public String toString() {
+        return "{\n format: " + format + ", \n words: " + words + "\n}";
+    }
 }

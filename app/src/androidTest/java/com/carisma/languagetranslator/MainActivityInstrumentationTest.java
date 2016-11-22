@@ -23,11 +23,11 @@ public class MainActivityInstrumentationTest {
 
     @Test
     public void allViewsAvailable() {
-        onView(withId(R.id.spinner_result)).check(matches(isDisplayed()));
+        onView(withId(R.id.spinner_destination)).check(matches(isDisplayed()));
         onView(withId(R.id.spinner_source)).check(matches(isDisplayed()));
-        onView(withId(R.id.word_input)).check(matches(isDisplayed()));
+        onView(withId(R.id.word_input_edit_text)).check(matches(isDisplayed()));
         onView(withId(R.id.toggle_language)).check(matches(isDisplayed()));
-        onView(withId(R.id.convert_language)).check(matches(isDisplayed()));
+        onView(withId(R.id.convert_language_button)).check(matches(isDisplayed()));
     }
 
 }
