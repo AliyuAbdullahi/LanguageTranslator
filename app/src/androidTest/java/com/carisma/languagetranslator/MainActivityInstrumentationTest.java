@@ -3,12 +3,18 @@ package com.carisma.languagetranslator;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.carisma.languagetranslator.models.Word;
+import com.carisma.languagetranslator.utilities.LanguageFetcher;
+import com.carisma.languagetranslator.utilities.LanguageProcessor;
+
+import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static android.support.test.espresso.Espresso.onView;
 
+import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,4 +36,29 @@ public class MainActivityInstrumentationTest {
         onView(withId(R.id.convert_language_button)).check(matches(isDisplayed()));
     }
 
+    @Test
+    public void buttonShouldPerformClickAction() {
+        onView(withId(R.id.convert_language_button)).perform(click());
+    }
+
+    @Test
+    public void testActivityLanguageProcessor() {
+        LanguageProcessor processor = new LanguageProcessor(activityActivityTestRule.getActivity().getApplicationContext());
+        processor.setLanguages(new String[]{"English", "French", "Arabic"});
+        processor.setFormats(new String[]{"en", "fr", "ar"});
+        Assert.assertEquals("Processor should return correct language format", processor.extractFormat("English").equals("en"), true);
+        Assert.assertEquals("Processor should return correct language format", processor.extractFormat("French").equals("fr"), true);
+        Assert.assertEquals("Processor should return correct language format", processor.extractFormat("Arabic").equals("ar"), true);
+    }
+
+    @Test(timeout = 200)
+    public void languageFetcherCanMakeApiCall() {
+        LanguageFetcher fetcher = new LanguageFetcher(activityActivityTestRule.getActivity().getApplicationContext());
+        fetcher.getWord("how are you", "en", "fr", new LanguageFetcher.OnWordObtainedListener() {
+            @Override
+            public void onWordObtained(Word word) {
+                Assert.assertEquals("Word contains object", word != null, true);
+            }
+        });
+    }
 }

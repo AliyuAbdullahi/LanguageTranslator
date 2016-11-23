@@ -21,6 +21,23 @@ import com.carisma.languagetranslator.utilities.LanguageProcessor;
 
 public class MainActivity extends AppCompatActivity {
     LanguageFetcher fetcher;
+    LanguageProcessor languageProcessor;
+
+    public LanguageFetcher getFetcher() {
+        return fetcher;
+    }
+
+    public void setFetcher(LanguageFetcher fetcher) {
+        this.fetcher = fetcher;
+    }
+
+    public LanguageProcessor getLanguageProcessor() {
+        return languageProcessor;
+    }
+
+    public void setLanguageProcessor(LanguageProcessor languageProcessor) {
+        this.languageProcessor = languageProcessor;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

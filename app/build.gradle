@@ -16,6 +16,15 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "TRANSLATE_APIKEY", "\"trnsl.1.1.20161122T084447Z.7a58771dfb231b24.efa6915df34c5644491674c098d1f6ee2215238a\""
+        }
+        debug {
+            debuggable true
+            jniDebuggable true
+            minifyEnabled false
+            zipAlignEnabled true
+            testCoverageEnabled = false
+            buildConfigField "String", "TRANSLATE_APIKEY", "\"trnsl.1.1.20161122T084447Z.7a58771dfb231b24.efa6915df34c5644491674c098d1f6ee2215238a\""
         }
     }
 }
@@ -27,6 +36,7 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.0.0'
     compile 'com.android.support:design:25.0.0'
+    compile 'com.android.support.test:runner:0.5'
     testCompile 'junit:junit:4.12'
 
     //---------- android volley for light request ---------//
