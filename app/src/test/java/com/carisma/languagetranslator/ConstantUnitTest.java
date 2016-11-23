@@ -1,7 +1,8 @@
 package com.carisma.languagetranslator;
 
+import com.carisma.languagetranslator.constants.Constants;
+
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 /**

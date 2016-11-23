@@ -3,6 +3,7 @@ package com.carisma.languagetranslator;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.carisma.languagetranslator.activities.MainActivity;
 import com.carisma.languagetranslator.models.Word;
 import com.carisma.languagetranslator.utilities.LanguageFetcher;
 import com.carisma.languagetranslator.utilities.LanguageProcessor;
@@ -14,8 +15,6 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static android.support.test.espresso.Espresso.onView;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;

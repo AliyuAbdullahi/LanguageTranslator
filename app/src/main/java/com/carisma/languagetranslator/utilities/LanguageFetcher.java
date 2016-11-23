@@ -10,7 +10,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.carisma.languagetranslator.BuildConfig;
-import com.carisma.languagetranslator.Constants;
+import com.carisma.languagetranslator.constants.Constants;
 import com.carisma.languagetranslator.models.Word;
 
 import org.json.JSONArray;
