@@ -14,6 +14,8 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static android.support.test.espresso.Espresso.onView;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -58,6 +60,8 @@ public class MainActivityInstrumentationTest {
             @Override
             public void onWordObtained(Word word) {
                 Assert.assertEquals("Word contains object", word != null, true);
+                Assert.assertTrue(word.getText().length()>0);
+                Assert.assertTrue(!word.getText().equals("Error"));
             }
         });
     }
